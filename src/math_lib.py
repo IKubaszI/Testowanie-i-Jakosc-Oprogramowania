@@ -20,7 +20,9 @@ def perfectNum(digit):
             sum = sum + i
     if sum == digit:
         print("liczba doskonała")
+        print("")
         return True
     else:
         print("liczba nie doskonała")
+        print("")
         return True
