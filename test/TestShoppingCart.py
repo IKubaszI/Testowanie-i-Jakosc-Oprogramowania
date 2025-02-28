@@ -75,6 +75,45 @@ class TestShoppingCart(unittest.TestCase):
         self.assertEqual(total_price, expected_total)
         print("** test_get_total_price()")
 
+    def test_add_two_products_remove_one(self):
+        # Arrange
+        product_name1 = "Apple"
+        price1 = 5
+        quantity1 = 2
+        product_name2 = "Banana"
+        price2 = 3
+        quantity2 = 1
+
+        # Act
+        self.cart.add_product(product_name1, price1, quantity1)
+        self.cart.add_product(product_name2, price2, quantity2)
+
+        # Remove one product
+        self.cart.remove_product(product_name1)
+
+        # Assert
+        self.assertIn(product_name2, self.cart.get_products())
+        self.assertNotIn(product_name1, self.cart.get_products())
+        self.assertEqual(self.cart.count_products(), quantity2)
+        print("** test_add_two_products_remove_one()")
+
+    def test_add_two_products_and_check_product_count(self):
+        # Arrange
+        product_name1 = "Apple"
+        price1 = 5
+        quantity1 = 2
+        product_name2 = "Orange"
+        price2 = 4
+        quantity2 = 3
+
+        # Act
+        self.cart.add_product(product_name1, price1, quantity1)
+        self.cart.add_product(product_name2, price2, quantity2)
+
+        # Assert
+        self.assertEqual(self.cart.count_products(), quantity1 + quantity2)
+        print("** test_add_two_products_and_check_product_count()")
+
     def tearDown(self):
         print("*** tearDown()")
         self.cart = None
