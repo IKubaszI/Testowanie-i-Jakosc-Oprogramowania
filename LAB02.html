@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<!-- saved from url=(0056)https://tgadek.bitbucket.io/tijo/unittest-framework.html -->
+<html lang="pl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Tomasz Gądek">
+    <meta name="description" content="
+            CLEAN CODE - Twórz oprogramowanie, które rozumieją ludzie, a nie komputery.
+            TDD - Bądź profesjonalny i testuj własny kod.
+            CODE KATA - Ćwicz do bólu, aż pojawi się pamięć mięśniowa. 
+        ">
+
+    <link rel="icon" type="image/png" href="./LAB02_files/tgadek-logo.png">
+
+    <title>Tomasz Gądek | TiJO | LAB02</title>
+
+    <link id="theme-style" rel="stylesheet" href="./LAB02_files/general.css">
+</head>
+<body>
+    <header>
+        <a href="https://tgadek.bitbucket.io/"><img src="./LAB02_files/tgadek-logo.png" alt="Tomasz Gądek Home Page"></a><h1>tgadek.bitbucket.io</h1>
+    </header>
+
+    <nav>
+        <a href="https://tgadek.bitbucket.io/" title="Strona Główna">Home</a>
+        <a href="https://tgadek.bitbucket.io/nisp.html" title="Narzędzia i Środowiska Programistyczne">NiSP</a>
+        <a href="https://tgadek.bitbucket.io/tijo.html" title="Testowanie i Jakość Oprogramowania">TiJO</a>
+        <a href="https://tgadek.bitbucket.io/jz.html" title="Języki Znacznikowe">JZ / PIU</a>
+        <a href="https://tgadek.bitbucket.io/ld.html" title="Laboratorium Dyplomowe">LD</a>
+        <a href="https://tgadek.bitbucket.io/ti.html" title="Technologia Informacyjna">TI</a>
+    </nav>
+
+    <div class="container">
+        <div class="terminal">
+            <div class="terminal-bar">
+                <div class="terminal-button red"></div>
+                <div class="terminal-button yellow"></div>
+                <div class="terminal-button green"></div>
+                <button class="theme-toggle" id="theme-toggle" title="Zmień tryb">☀️</button>
+            </div>
+            <div class="terminal-content">
+                <h1>Testowanie i Jakość Oprogramowania</h1>
+                <p>
+                    <strong>Laboratorium 2:</strong> Framework unittest.
+                </p>
+
+                <h2>Framework unittest</h2>
+
+                <p>
+                    W Pythonie do tworzenia testów jednostkowych najczęściej używa się 
+                    frameworka <strong>unittest</strong>. Spójrz na podstawową strukturę 
+                    testu przy użyciu tego frameworka.
+                </p>
+
+                <img src="./LAB02_files/tijo-lab02-test-calc.png" alt="test calc">
+
+                <p>
+                    Postaraj się dokończyć implementacje testów (nie zapominamy o konwencji AAA w metodach) oraz klasy <strong>Calc</strong>
+                    (metody: add(), subtract() i multiply()). Po uruchomieniu testów przeanalizuj logi. 
+                    Zanim zaczniesz działać przeczytaj omówienie struktury zaprezentowanych testów.
+                </p>
+
+                <h2>Struktura testów</h2>
+
+                <ul>
+                    <li>W pierwszej kolejności importujemy bibliotekę <strong>unittest</strong>, która zawiera funkcje do testowania.</li>
+                    <li>Każdy test jednostkowy w <strong>unittest</strong> musi być zawarty w klasie, która dziedziczy po <strong>unittest.TestCase</strong>.</li>
+                    <li>Metoda <strong>setUp()</strong> jest wywoływana przed każdym testem. Jest to miejsce, gdzie inicjalizujemy obiekty lub zasoby, które będą używane w testach.</li>
+                    <li>Każda metoda testowa musi zaczynać się od <strong>test_</strong>. Jest to konwencja, którą <strong>unittest</strong> wykorzystuje do rozpoznawania metod, które są testami. Każda metoda testowa sprawdza jedną, konkretną funkcjonalność. W przypadku nieprawidłowego wyniku, test zakończy się błędem.</li>
+                    <li><strong>assertEqual()</strong> jest to najczęściej używana metoda do porównywania oczekiwanego wyniku z wynikiem rzeczywistym. Sprawdza, czy oba argumenty są sobie równe. Jeśli tak, test przechodzi pomyślnie, w przeciwnym razie test się nie powiedzie.</li>
+                    <li><strong>assertRaises()</strong> jest używana do testowania, czy w odpowiednich sytuacjach jest rzucany wyjątek. W tym przypadku sprawdzamy, czy przy próbie dzielenia przez zero zostanie rzucony wyjątek <strong>ValueError</strong>.</li>
+                    <li><strong>tearDown() jest wywoływana po każdym teście i służy do usuwania zasobów lub zamykania połączeń, jeśli to konieczne.</strong></li>
+                    <li>Testy w <strong>unittest</strong> uruchamiamy za pomocą komendy <strong>unittest.main()</strong>, co powoduje automatyczne wykrycie i uruchomienie wszystkich metod testowych w klasie.</li>
+                </ul>
+
+                <h2>Operacje na koszyku zakupowym</h2>
+
+                <p>
+                    Twoje zadanie będzie polegało implementacji koszyka zakupowego oraz testów jednostkowych. 
+                    Poniżej została zaprezentowana dokumentacja w formie skryptu Python.
+                </p>
+
+                <a href="https://tgadek.bitbucket.io/tijo/source-code/ShoppingCart.py">ShoppingCart.py</a>
+
+                <p>
+                    Przed implementacją konkretnej metody staraj się napisać test.
+                </p>
+
+                <hr>
+                
+                <p>
+                    <em>Wiem, że nic nie wiem</em>
+                </p>
+                <p>~<strong>Sokrates</strong><span class="cursor"></span></p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Tomasz Gądek. Wszystkie prawa zastrzeżone.</p>
+    </footer>
+
+    <script src="./LAB02_files/ThemeSwitcher.js.pobrane" type="text/javascript"></script>
+
+
+</body></html>

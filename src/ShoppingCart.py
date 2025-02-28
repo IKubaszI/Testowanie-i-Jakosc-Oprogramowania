@@ -8,7 +8,7 @@ class ShoppingCart:
         if price < 0 or quantity <= 0:
             return False
         if product_name in self.products:
-            self.products[product_name]['quantity'] += quantity
+            return False
         else:
             self.products[product_name] = {'price': price, 'quantity': quantity}
         return True
