@@ -1,0 +1,108 @@
+body {
+    background: radial-gradient(circle at 50% 50%, #a86e3b 0%, #8c5e31 40%, #6b4e2e 70%, #4a3b23 100%);
+    font-family: sans-serif;
+    color: #333;
+    margin: 0;
+    padding-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.chessboard {
+    width: 480px;
+    height: 480px;
+    margin: 40px auto;
+    border: 2px solid #5e3c1e;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.black {
+    float: left;
+    width: 60px;
+    height: 60px;
+    background-color: #5e3c1e;
+    color: #f0f0f0;
+    font-size: 40px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.white {
+    float: left;
+    width: 60px;
+    height: 60px;
+    background-color: #f0d9b5;
+    color: #5e3c1e;
+    font-size: 40px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.effect {
+    position: relative;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.effect:before, .effect:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    top: 5px;
+    bottom: 5px;
+    left: 0;
+    right: 0;
+    border-radius: 50px / 5px;
+}
+
+.effect:after {
+    right: 5px;
+    left: auto;
+    transform: skew(4deg) rotate(1deg);
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.input-group label {
+    color: white;
+    margin-right: 10px;
+}
+
+.input-group select {
+    padding: 10px;
+    border: 1px solid #777;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #f9f9f9;
+    color: #333;
+    cursor: pointer;
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23333" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+    background-repeat: no-repeat;
+    background-position-x: 100%;
+    background-position-y: 50%;
+    padding-right: 30px;
+}
+
+.input-group select:focus {
+    outline: none;
+    border-color: #5e3c1e;
+    box-shadow: 0 0 5px rgba(94, 60, 30, 0.5);
+}
+
+.input-group select option {
+    background-color: #f9f9f9;
+    color: #333;
+}

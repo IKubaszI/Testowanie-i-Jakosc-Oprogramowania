@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <meta charset="UTF-8">
+
+        <title>at chess</title>
+
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+        <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}">
+    </head>
+    <body id="0_0">
+
+        <div class="input-group">
+            <label for="chess">Figura:</label>
+            <select id="chess">
+                <option value="KING">Król</option>
+                <option value="QUEEN">Królowa</option>
+                <option value="ROOK">Wieża</option>
+                <option value="BISHOP" selected>Goniec</option>
+                <option value="KNIGHT">Konik</option>
+                <option value="PAWN">Pionek</option>
+            </select>
+        </div>
+
+        <div id="board-container"></div>
+
+        <script src="{{ url_for('static', filename='engine.js') }}"></script>
+    </body>
+</html>
