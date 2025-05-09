@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<!-- saved from url=(0042)https://tgadek.bitbucket.io/tijo/form.html -->
+<html lang="pl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Tomasz Gądek">
+    <meta name="description" content="
+            CLEAN CODE - Twórz oprogramowanie, które rozumieją ludzie, a nie komputery.
+            TDD - Bądź profesjonalny i testuj własny kod.
+            CODE KATA - Ćwicz do bólu, aż pojawi się pamięć mięśniowa. 
+        ">
+
+    <link rel="icon" type="image/png" href="./Tomasz Gądek _ TiJO _ LAB10_files/tgadek-logo.png">
+
+    <title>Tomasz Gądek | TiJO | LAB10</title>
+
+    <link id="theme-style" rel="stylesheet" href="./Tomasz Gądek _ TiJO _ LAB10_files/general.css">
+</head>
+<body>
+    <header>
+        <a href="https://tgadek.bitbucket.io/"><img src="./Tomasz Gądek _ TiJO _ LAB10_files/tgadek-logo.png" alt="Tomasz Gądek Home Page"></a><h1>tgadek.bitbucket.io</h1>
+    </header>
+
+    <nav>
+        <a href="https://tgadek.bitbucket.io/" title="Strona Główna">Home</a>
+        <a href="https://tgadek.bitbucket.io/nisp.html" title="Narzędzia i Środowiska Programistyczne">NiSP</a>
+        <a href="https://tgadek.bitbucket.io/tijo.html" title="Testowanie i Jakość Oprogramowania">TiJO</a>
+        <a href="https://tgadek.bitbucket.io/jz.html" title="Języki Znacznikowe">JZ / PIU</a>
+        <a href="https://tgadek.bitbucket.io/ld.html" title="Laboratorium Dyplomowe">LD</a>
+        <a href="https://tgadek.bitbucket.io/ti.html" title="Technologia Informacyjna">TI</a>
+    </nav>
+
+    <div class="container">
+        <div class="terminal">
+            <div class="terminal-bar">
+                <div class="terminal-button red"></div>
+                <div class="terminal-button yellow"></div>
+                <div class="terminal-button green"></div>
+                <button class="theme-toggle" id="theme-toggle" title="Zmień tryb">☀️</button>
+            </div>
+            <div class="terminal-content">
+                <h1>Testowanie i Jakość Oprogramowania</h1>
+                <p>
+                    <strong>Laboratorium 10:</strong> Testy manualne, testowanie formularzy.
+                </p>
+
+                <h2>Testy manualne</h2>
+
+                <p>
+                    Testy manualne to proces testowania oprogramowania, w którym tester ręcznie wykonuje 
+                    testy, aby sprawdzić, czy aplikacja zachowuje się zgodnie z oczekiwaniami. W testach 
+                    manualnych tester wykonuje konkretne kroki, aby zweryfikować funkcjonalność aplikacji, 
+                    identyfikować błędy i oceniać ogólną jakość produktu.
+                </p>
+
+                <h2>Aplikacja Register</h2>
+
+                <p>
+                    Pobierz aplikację <a href="https://tgadek.bitbucket.io/tijo/source-code/register/flask-form-app.zip" download="register.zip">register.zip</a> i dobrze 
+                    przeanalizuj kod. Po uruchomieniu aplikacji formularz rejestracji 
+                    będzie dostępny pod adresem <a href="http://localhost:5000/" target="_blank">http://localhost:5000/</a>.
+                </p>
+
+                <p>Widok aplikacji po uruchomieniu serwera.</p>
+
+                <img src="./Tomasz Gądek _ TiJO _ LAB10_files/tijo-lab10-register-form.png" alt="register form">
+
+                <h2>Twoje zadanie</h2>
+
+                <p>
+                    Bardzo proszę przeanalizować kod i dokończyć (poprawić) walidację pozostałych 
+                    (istniejących) pól formularza rejestracji użytkownika zgodnie z założeniami 
+                    umieszczonymi w tabelce.
+                </p>
+
+                <table>
+                    <tbody><tr><th>POLE FORMULARZA</th><th>WALIDACJA</th></tr>
+                    <tr>
+                        <td>LOGIN</td>
+                        <td>Pole nie może być puste. Pole może zawierać dowolny ciąg składający się minimum z 4 znaków.</td>
+                    </tr>
+                    <tr>
+                        <td>FIRST_NAME</td>
+                        <td>Pole nie może być puste. Pole może zawierać dowolny ciąg.</td>
+                    </tr>
+                    <tr>
+                        <td>LAST_NAME</td>
+                        <td>Pole nie może być puste. Pole może zawierać dowolny ciąg.</td>
+                    </tr>
+                    <tr>
+                        <td>PASSWORD</td>
+                        <td>
+                            Pole nie może być puste. Pole powinno składać się z minimum 4 znaków. Hasło powinno składać się 
+                            przynajmniej z: Cyfry, wielkiej litery, małej litery, znaku specjalnego (!@#$%^&amp;*()_+-=).
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>PESEL</td>
+                        <td>
+                            Pole nie może być puste. Weryfikacja numeru PESEL powinna zostać oparta o wyliczenie 
+                            <a href="https://pl.wikipedia.org/wiki/PESEL#Cyfra_kontrolna_i_sprawdzanie_poprawno%C5%9Bci_numeru" target="_blank">cyfry kontrolnej</a>.
+                        </td>
+                    </tr>
+                </tbody></table>
+
+                <hr>
+                
+                <p>
+                    <em>Wiem, że nic nie wiem</em>
+                </p>
+                <p>~<strong>Sokrates</strong><span class="cursor"></span></p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Tomasz Gądek. Wszystkie prawa zastrzeżone.</p>
+    </footer>
+
+    <script src="./Tomasz Gądek _ TiJO _ LAB10_files/ThemeSwitcher.js.pobrane" type="text/javascript"></script>
+
+
+</body></html>
