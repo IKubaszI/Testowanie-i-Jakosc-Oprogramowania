@@ -1,10 +1,11 @@
-# Naruszenie zasady DIP
+from abc import ABC, abstractmethod
 
-class SwitchableDevice:
-
+class SwitchableDevice(ABC):
+    @abstractmethod
     def turn_on(self):
         pass
 
+    @abstractmethod
     def turn_off(self):
         pass
 
@@ -15,14 +16,12 @@ class Light(SwitchableDevice):
     def turn_off(self):
         print("Light is off")
 
-
 class Fan(SwitchableDevice):
     def turn_on(self):
         print("Fan is spinning")
 
     def turn_off(self):
         print("Fan is stopped")
-
 
 class Button:
     def __init__(self, device: SwitchableDevice):
@@ -31,13 +30,9 @@ class Button:
     def press(self):
         self._device.turn_on()
 
-
-# Usage
 light = Light()
 light_button = Button(light)
-
 fan = Fan()
 fan_button = Button(fan)
-
 light_button.press()
 fan_button.press()
