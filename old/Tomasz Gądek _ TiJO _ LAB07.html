@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<!-- saved from url=(0050)https://tgadek.bitbucket.io/tijo/test-doubles.html -->
+<html lang="pl"><script src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/content/location/location.js" id="eppiocemhmnlbhjplcgkofciiegomcon"></script><script src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/libs/extend-native-history-api.js"></script><script src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/libs/requests.js"></script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Tomasz Gądek">
+    <meta name="description" content="
+            CLEAN CODE - Twórz oprogramowanie, które rozumieją ludzie, a nie komputery.
+            TDD - Bądź profesjonalny i testuj własny kod.
+            CODE KATA - Ćwicz do bólu, aż pojawi się pamięć mięśniowa. 
+        ">
+
+    <link rel="icon" type="image/png" href="./Tomasz Gądek _ TiJO _ LAB07_files/tgadek-logo.png">
+
+    <title>Tomasz Gądek | TiJO | LAB07</title>
+
+    <link id="theme-style" rel="stylesheet" href="./Tomasz Gądek _ TiJO _ LAB07_files/general.css">
+<link id="chromealerabat-link" rel="stylesheet" type="text/css" href="chrome-extension://dacdinoicboceafielngnmjjplncljhj/content.css"><script bis_use="true" type="text/javascript" charset="utf-8" data-bis-config="[&quot;facebook.com/&quot;,&quot;twitter.com/&quot;,&quot;youtube-nocookie.com/embed/&quot;,&quot;//vk.com/&quot;,&quot;//www.vk.com/&quot;,&quot;linkedin.com/&quot;,&quot;//www.linkedin.com/&quot;,&quot;//instagram.com/&quot;,&quot;//www.instagram.com/&quot;,&quot;//www.google.com/recaptcha/api2/&quot;,&quot;//hangouts.google.com/webchat/&quot;,&quot;//www.google.com/calendar/&quot;,&quot;//www.google.com/maps/embed&quot;,&quot;spotify.com/&quot;,&quot;soundcloud.com/&quot;,&quot;//player.vimeo.com/&quot;,&quot;//disqus.com/&quot;,&quot;//tgwidget.com/&quot;,&quot;//js.driftt.com/&quot;,&quot;friends2follow.com&quot;,&quot;/widget&quot;,&quot;login&quot;,&quot;//video.bigmir.net/&quot;,&quot;blogger.com&quot;,&quot;//smartlock.google.com/&quot;,&quot;//keep.google.com/&quot;,&quot;/web.tolstoycomments.com/&quot;,&quot;moz-extension://&quot;,&quot;chrome-extension://&quot;,&quot;/auth/&quot;,&quot;//analytics.google.com/&quot;,&quot;adclarity.com&quot;,&quot;paddle.com/checkout&quot;,&quot;hcaptcha.com&quot;,&quot;recaptcha.net&quot;,&quot;2captcha.com&quot;,&quot;accounts.google.com&quot;,&quot;www.google.com/shopping/customerreviews&quot;,&quot;buy.tinypass.com&quot;,&quot;gstatic.com&quot;,&quot;secureir.ebaystatic.com&quot;,&quot;docs.google.com&quot;,&quot;contacts.google.com&quot;,&quot;github.com&quot;,&quot;mail.google.com&quot;,&quot;chat.google.com&quot;,&quot;audio.xpleer.com&quot;,&quot;keepa.com&quot;,&quot;static.xx.fbcdn.net&quot;,&quot;sas.selleramp.com&quot;,&quot;1plus1.video&quot;,&quot;console.googletagservices.com&quot;,&quot;//lnkd.demdex.net/&quot;,&quot;//radar.cedexis.com/&quot;,&quot;//li.protechts.net/&quot;,&quot;challenges.cloudflare.com/&quot;,&quot;ogs.google.com&quot;]" src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/executors/traffic.js"></script><style>[_nghost-ng-c2697620354]{font-family:Open Sans,sans-serif;color:#121212}</style></head>
+<body __processed_fe8e4b76-16c9-4857-a6fc-c87bca05b4dc__="true" bis_register="W3sibWFzdGVyIjp0cnVlLCJleHRlbnNpb25JZCI6ImVwcGlvY2VtaG1ubGJoanBsY2drb2ZjaWllZ29tY29uIiwiYWRibG9ja2VyU3RhdHVzIjp7IkRJU1BMQVkiOiJkaXNhYmxlZCIsIkZBQ0VCT09LIjoiZGlzYWJsZWQiLCJUV0lUVEVSIjoiZGlzYWJsZWQiLCJSRURESVQiOiJkaXNhYmxlZCIsIlBJTlRFUkVTVCI6ImRpc2FibGVkIiwiSU5TVEFHUkFNIjoiZGlzYWJsZWQiLCJMSU5LRURJTiI6ImRpc2FibGVkIiwiQ09ORklHIjoiZGlzYWJsZWQifSwidmVyc2lvbiI6IjIuMC4yMiIsInNjb3JlIjoyMDAyMn1d" bis_skin_checked="1">
+    <header>
+        <a href="https://tgadek.bitbucket.io/"><img src="./Tomasz Gądek _ TiJO _ LAB07_files/tgadek-logo.png" alt="Tomasz Gądek Home Page"></a><h1>tgadek.bitbucket.io</h1>
+    </header>
+
+    <nav>
+        <a href="https://tgadek.bitbucket.io/" title="Strona Główna" bis_skin_checked="1">Home</a>
+        <a href="https://tgadek.bitbucket.io/nisp.html" title="Narzędzia i Środowiska Programistyczne" bis_skin_checked="1">NiSP</a>
+        <a href="https://tgadek.bitbucket.io/tijo.html" title="Testowanie i Jakość Oprogramowania" bis_skin_checked="1">TiJO</a>
+        <a href="https://tgadek.bitbucket.io/jz.html" title="Języki Znacznikowe" bis_skin_checked="1">JZ / PIU</a>
+        <a href="https://tgadek.bitbucket.io/ld.html" title="Laboratorium Dyplomowe" bis_skin_checked="1">LD</a>
+        <a href="https://tgadek.bitbucket.io/ti.html" title="Technologia Informacyjna" bis_skin_checked="1">TI</a>
+    </nav>
+
+    <div class="container" bis_skin_checked="1">
+        <div class="terminal" bis_skin_checked="1">
+            <div class="terminal-bar" bis_skin_checked="1">
+                <div class="terminal-button red" bis_skin_checked="1"></div>
+                <div class="terminal-button yellow" bis_skin_checked="1"></div>
+                <div class="terminal-button green" bis_skin_checked="1"></div>
+                <button class="theme-toggle" id="theme-toggle" title="Zmień tryb">☀️</button>
+            </div>
+            <div class="terminal-content" bis_skin_checked="1">
+                <h1>Testowanie i Jakość Oprogramowania</h1>
+                <p>
+                    <strong>Laboratorium 7:</strong> Atrapy.
+                </p>
+
+                <h2>Atrapy</h2>
+
+                <p>
+                    W testach jednostkowych często spotykamy się z sytuacją, gdzie metoda, którą 
+                    testujemy, zależy od innej klasy lub modułu. Nie zawsze jednak chcemy 
+                    (lub możemy) testować całą aplikację naraz. W takich przypadkach używamy 
+                    atrap (<strong>stub</strong>, <strong>mock</strong>), czyli obiektów zastępczych symulujących 
+                    rzeczywiste zachowanie.
+                </p>
+
+                <h2>Do czego służą atrapy?</h2>
+
+                <p>Atrapy pozwalają nam:</p>
+
+                <ul>
+                    <li>testować kod bez faktycznej implementacji zależności,</li>
+                    <li>uniknąć wywołań rzeczywistych operacji, np. zapytań do bazy, API, czy obliczeń,</li>
+                    <li>skupić się na samej logice testowanej funkcji.</li>
+                </ul>
+
+                <p>
+                    W Pythonie do tworzenia atrap wykorzystujemy moduł <strong>unittest.mock</strong>, a 
+                    w szczególności <strong>Mock()</strong>.
+                </p>
+
+                <h2>Co to jest Mock()?</h2>
+
+                <p>
+                    Obiekt <strong>Mock()</strong> jest dynamiczną atrapą, która udaje prawdziwy obiekt i pozwala 
+                    kontrolować jego zwracane wartości oraz sprawdzać, czy był wywoływany.
+                </p>
+                <p>
+                    Możemy np.:
+                </p>
+                <ul>
+                    <li>ustawić wartość zwracaną przez funkcję (<strong>mock.return_value = 42</strong>),</li>
+                    <li>sprawdzić, ile razy była wywołana (<strong>mock.call_count</strong>),</li>
+                    <li>zweryfikować z jakimi argumentami była wywołana (<strong>mock.assert_called_with("Hello")</strong>).</li>
+                </ul>
+
+                <h2>Przykład</h2>
+
+                <p>
+                    Mamy klasę <a href="https://tgadek.bitbucket.io/tijo/source-code/test-doubles/counter.py" bis_skin_checked="1">Counter</a>, która używa 
+                    klasy <a href="https://tgadek.bitbucket.io/tijo/source-code/test-doubles/counter.py" bis_skin_checked="1">Operation</a>.
+                    Nie mamy implementacji <strong>count()</strong>, ale chcemy przetestować 
+                    <strong>Counter</strong>. Zastosujemy <strong>Mock()</strong> jako 
+                    atrapę zamiast faktycznej klasy <strong>Operation</strong>.
+                </p>
+
+                <p>
+                    Następnie zaimplementujemy <a href="https://tgadek.bitbucket.io/tijo/source-code/test-doubles/counter_tests.py" bis_skin_checked="1">testy</a>, 
+                    które nie wymagają rzeczywistej implementacji metody <strong>count()</strong>.
+                </p>
+
+                <p>Dobrze przeanalizuj kod i zastanów się.</p>
+
+                <h2>Zadanie</h2>
+
+                <p>
+                    Tworzysz system zarządzania książkami w bibliotece. Aktualnie nie ma jeszcze 
+                    implementacji systemu, ale został zdefiniowany 
+                    <a href="https://tgadek.bitbucket.io/tijo/source-code/test-doubles/library_repository.py" bis_skin_checked="1">interfejs</a> oraz 
+                    <a href="https://tgadek.bitbucket.io/tijo/source-code/test-doubles/library.py" bis_skin_checked="1">wstępna implementacja operacji</a>.
+                </p>
+
+                <ul>
+                    <li>
+                        W pierwszym kroku zaimplementujesz klasę <strong>LibraryRepository</strong>, ale 
+                        zamiast rzeczywistej bazy danych użyjesz słownika (<strong>dict</strong>
+                        - <strong>InMemoryRepository</strong>) 
+                        jako magazynu danych.
+                    </li>
+                    <li>
+                        W drugim kroku zamiast prawdziwego repozytorium użyj <strong>Mock</strong> do testowania 
+                        interakcji między Library a LibraryRepository.
+                    </li>
+                </ul>
+
+                <hr>
+                
+                <p>
+                    <em>Wiem, że nic nie wiem</em>
+                </p>
+                <p>~<strong>Sokrates</strong><span class="cursor"></span></p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Tomasz Gądek. Wszystkie prawa zastrzeżone.</p>
+    </footer>
+
+    <script src="./Tomasz Gądek _ TiJO _ LAB07_files/ThemeSwitcher.js.pobrane" type="text/javascript"></script>
+
+
+</body><app-ls-content ng-version="17.3.7"><template shadowrootmode="open"><!----><app-similar-tools _nghost-ng-c2697620354=""><!----><!----><!----></app-similar-tools><!----><!----><style>[_nghost-ng-c2697620354]{font-family:Open Sans,sans-serif;color:#121212}</style></template></app-ls-content></html>
