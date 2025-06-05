@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<!-- saved from url=(0048)https://tgadek.bitbucket.io/tijo/code-smell.html -->
+<html lang="pl"><script src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/content/location/location.js" id="eppiocemhmnlbhjplcgkofciiegomcon"></script><script src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/libs/extend-native-history-api.js"></script><script src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/libs/requests.js"></script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Tomasz Gądek">
+    <meta name="description" content="
+            CLEAN CODE - Twórz oprogramowanie, które rozumieją ludzie, a nie komputery.
+            TDD - Bądź profesjonalny i testuj własny kod.
+            CODE KATA - Ćwicz do bólu, aż pojawi się pamięć mięśniowa. 
+        ">
+
+    <link rel="icon" type="image/png" href="./Tomasz Gądek _ TiJO _ LAB06_files/tgadek-logo.png">
+
+    <title>Tomasz Gądek | TiJO | LAB06</title>
+
+    <link id="theme-style" rel="stylesheet" href="./Tomasz Gądek _ TiJO _ LAB06_files/general.css">
+<link id="chromealerabat-link" rel="stylesheet" type="text/css" href="chrome-extension://dacdinoicboceafielngnmjjplncljhj/content.css"><script bis_use="true" type="text/javascript" charset="utf-8" data-bis-config="[&quot;facebook.com/&quot;,&quot;twitter.com/&quot;,&quot;youtube-nocookie.com/embed/&quot;,&quot;//vk.com/&quot;,&quot;//www.vk.com/&quot;,&quot;linkedin.com/&quot;,&quot;//www.linkedin.com/&quot;,&quot;//instagram.com/&quot;,&quot;//www.instagram.com/&quot;,&quot;//www.google.com/recaptcha/api2/&quot;,&quot;//hangouts.google.com/webchat/&quot;,&quot;//www.google.com/calendar/&quot;,&quot;//www.google.com/maps/embed&quot;,&quot;spotify.com/&quot;,&quot;soundcloud.com/&quot;,&quot;//player.vimeo.com/&quot;,&quot;//disqus.com/&quot;,&quot;//tgwidget.com/&quot;,&quot;//js.driftt.com/&quot;,&quot;friends2follow.com&quot;,&quot;/widget&quot;,&quot;login&quot;,&quot;//video.bigmir.net/&quot;,&quot;blogger.com&quot;,&quot;//smartlock.google.com/&quot;,&quot;//keep.google.com/&quot;,&quot;/web.tolstoycomments.com/&quot;,&quot;moz-extension://&quot;,&quot;chrome-extension://&quot;,&quot;/auth/&quot;,&quot;//analytics.google.com/&quot;,&quot;adclarity.com&quot;,&quot;paddle.com/checkout&quot;,&quot;hcaptcha.com&quot;,&quot;recaptcha.net&quot;,&quot;2captcha.com&quot;,&quot;accounts.google.com&quot;,&quot;www.google.com/shopping/customerreviews&quot;,&quot;buy.tinypass.com&quot;,&quot;gstatic.com&quot;,&quot;secureir.ebaystatic.com&quot;,&quot;docs.google.com&quot;,&quot;contacts.google.com&quot;,&quot;github.com&quot;,&quot;mail.google.com&quot;,&quot;chat.google.com&quot;,&quot;audio.xpleer.com&quot;,&quot;keepa.com&quot;,&quot;static.xx.fbcdn.net&quot;,&quot;sas.selleramp.com&quot;,&quot;1plus1.video&quot;,&quot;console.googletagservices.com&quot;,&quot;//lnkd.demdex.net/&quot;,&quot;//radar.cedexis.com/&quot;,&quot;//li.protechts.net/&quot;,&quot;challenges.cloudflare.com/&quot;,&quot;ogs.google.com&quot;]" src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/executors/traffic.js"></script><style>[_nghost-ng-c2697620354]{font-family:Open Sans,sans-serif;color:#121212}</style></head>
+<body bis_register="W3sibWFzdGVyIjp0cnVlLCJleHRlbnNpb25JZCI6ImVwcGlvY2VtaG1ubGJoanBsY2drb2ZjaWllZ29tY29uIiwiYWRibG9ja2VyU3RhdHVzIjp7IkRJU1BMQVkiOiJkaXNhYmxlZCIsIkZBQ0VCT09LIjoiZGlzYWJsZWQiLCJUV0lUVEVSIjoiZGlzYWJsZWQiLCJSRURESVQiOiJkaXNhYmxlZCIsIlBJTlRFUkVTVCI6ImRpc2FibGVkIiwiSU5TVEFHUkFNIjoiZGlzYWJsZWQiLCJMSU5LRURJTiI6ImRpc2FibGVkIiwiQ09ORklHIjoiZGlzYWJsZWQifSwidmVyc2lvbiI6IjIuMC4yMiIsInNjb3JlIjoyMDAyMn1d" __processed_6ccff12c-c4a9-4475-8f8f-45645a47af52__="true" bis_skin_checked="1">
+    <header>
+        <a href="https://tgadek.bitbucket.io/"><img src="./Tomasz Gądek _ TiJO _ LAB06_files/tgadek-logo.png" alt="Tomasz Gądek Home Page"></a><h1>tgadek.bitbucket.io</h1>
+    </header>
+
+    <nav>
+        <a href="https://tgadek.bitbucket.io/" title="Strona Główna" bis_skin_checked="1">Home</a>
+        <a href="https://tgadek.bitbucket.io/nisp.html" title="Narzędzia i Środowiska Programistyczne" bis_skin_checked="1">NiSP</a>
+        <a href="https://tgadek.bitbucket.io/tijo.html" title="Testowanie i Jakość Oprogramowania" bis_skin_checked="1">TiJO</a>
+        <a href="https://tgadek.bitbucket.io/jz.html" title="Języki Znacznikowe" bis_skin_checked="1">JZ / PIU</a>
+        <a href="https://tgadek.bitbucket.io/ld.html" title="Laboratorium Dyplomowe" bis_skin_checked="1">LD</a>
+        <a href="https://tgadek.bitbucket.io/ti.html" title="Technologia Informacyjna" bis_skin_checked="1">TI</a>
+    </nav>
+
+    <div class="container" bis_skin_checked="1">
+        <div class="terminal" bis_skin_checked="1">
+            <div class="terminal-bar" bis_skin_checked="1">
+                <div class="terminal-button red" bis_skin_checked="1"></div>
+                <div class="terminal-button yellow" bis_skin_checked="1"></div>
+                <div class="terminal-button green" bis_skin_checked="1"></div>
+                <button class="theme-toggle" id="theme-toggle" title="Zmień tryb">☀️</button>
+            </div>
+            <div class="terminal-content" bis_skin_checked="1">
+                <h1>Testowanie i Jakość Oprogramowania</h1>
+                <p>
+                    <strong>Laboratorium 6:</strong> Code Smells.
+                </p>
+
+                <h2>Code Smell</h2>
+
+                <p>
+                    <strong>Code Smell</strong> to termin używany w programowaniu do 
+                    opisywania pewnych cech kodu źródłowego, które wskazują na potencjalne 
+                    problemy z jego jakością. Niekoniecznie oznaczają one błędy, ale 
+                    często prowadzą do trudniejszego utrzymania, rozszerzania i testowania kodu.
+                </p>
+
+                <h2>Code Smells wewnątrz klasy</h2>
+
+                <ul>
+                    <li><strong>Komentarze (Comments)</strong> – Czy komentarze są rzeczywiście potrzebne? Powinny wyjaśniać "dlaczego", a nie "co". Jeśli możesz, przekształć kod tak, aby komentarze nie były konieczne.</li>
+                    <li><strong>Długa metoda (Long Method)</strong> – Krótsze metody są łatwiejsze do czytania, zrozumienia i debugowania. Jeśli możesz, podziel długą metodę na mniejsze.</li>
+                    <li><strong>Długa lista parametrów (Long Parameter List)</strong> – Im więcej parametrów ma metoda, tym bardziej jest skomplikowana. Staraj się ograniczać ich liczbę lub grupować je w obiekty.</li>
+                    <li><strong>Duplikacja kodu (Duplicated Code)</strong> – Powtarzający się kod to problem, który należy eliminować. Zasada DRY (Don't Repeat Yourself).</li>
+                    <li><strong>Złożoność warunków (Conditional Complexity)</strong> – Unikaj rozbudowanych bloków warunkowych. Możesz rozważyć wzorce projektowe, takie jak dekorator, strategia czy stan.</li>
+                    <li><strong>Eksplozja kombinatoryczna (Combinatorial Explosion)</strong> – Jeśli masz wiele podobnych fragmentów kodu, rozważ użycie generyków lub wzorca interpreter.</li>
+                    <li><strong>Zbyt duża klasa (Large Class)</strong> – Duże klasy są trudne do czytania i zrozumienia. Sprawdź, czy klasa nie ma zbyt wielu odpowiedzialności.</li>
+                    <li><strong>Typ w nazwie (Type Embedded in Name)</strong> – Unikaj umieszczania typów w nazwach metod.</li>
+                    <li><strong>Nieczytelna nazwa (Uncommunicative Name)</strong> – Czy nazwa metody jasno mówi, co ona robi? Jeśli nie, zmień ją na bardziej czytelną.</li>
+                    <li><strong>Niespójne nazwy (Inconsistent Names)</strong> – Stosuj jednolitą terminologię w całym kodzie.</li>
+                    <li><strong>Martwy kod (Dead Code)</strong> – Usuwaj nieużywany kod. Od tego są systemy kontroli wersji.</li>
+                    <li><strong>Spekulatywna ogólność (Speculative Generality)</strong> – Pisz kod rozwiązujący obecne problemy, a nie potencjalne przyszłe scenariusze (YAGNI - You Ain’t Gonna Need It).</li>
+                    <li><strong>Nietypowe rozwiązanie (Oddball Solution)</strong> – Dla tego samego problemu powinna istnieć jedna metoda rozwiązania.</li>
+                    <li><strong>Tymczasowe pola (Temporary Field)</strong> – Jeśli obiekt zawiera wiele opcjonalnych pól, sprawdź, czy rzeczywiście są potrzebne.</li>
+                </ul>
+
+                <h2>Code Smells pomiędzy klasami</h2>
+
+                <ul>
+                    <li><strong>Alternatywne klasy z różnymi interfejsami (Alternative Classes with Different Interfaces)</strong> – Jeśli dwie klasy są wewnętrznie podobne, ale mają różne interfejsy, rozważ wprowadzenie wspólnego interfejsu.</li>
+                    <li><strong>Obsesja na punkcie prymitywów (Primitive Obsession)</strong> – Nie używaj wielu zmiennych typu podstawowego zamiast dedykowanej klasy.</li>
+                    <li><strong>Klasa przechowująca tylko dane (Data Class)</strong> – Unikaj klas, które jedynie przechowują dane, bez metod operujących na nich.</li>
+                    <li><strong>Nagromadzenie danych (Data Clumps)</strong> – Jeśli pewne dane zawsze pojawiają się razem, rozważ utworzenie klasy grupującej te dane.</li>
+                    <li><strong>Odrzucone dziedziczenie (Refused Bequest)</strong> – Jeśli klasa dziedziczy po innej, ale nie używa jej funkcjonalności, być może nie powinna korzystać z dziedziczenia.</li>
+                    <li><strong>Nadmierna intymność (Inappropriate Intimacy)</strong> – Klasy nie powinny znać swoich wewnętrznych szczegółów nawzajem.</li>
+                    <li><strong>Nieodpowiednia ekspozycja (Indecent Exposure)</strong> – Unikaj niepotrzebnego udostępniania elementów klasy na zewnątrz.</li>
+                    <li><strong>Zazdrość o funkcje (Feature Envy)</strong> – Jeśli metoda nadmiernie korzysta z innej klasy, powinna się w niej znajdować.</li>
+                    <li><strong>Bezużyteczna klasa (Lazy Class)</strong> – Każda klasa powinna mieć istotną funkcję w projekcie.</li>
+                    <li><strong>Łańcuchy wywołań (Message Chains)</strong> – Unikaj długich sekwencji wywołań metod.</li>
+                    <li><strong>Zbędny pośrednik (Middle Man)</strong> – Jeśli klasa jedynie deleguje pracę innym, może być zbędna.</li>
+                    <li><strong>Rozbieżna zmiana (Divergent Change)</strong> – Jeśli jedna klasa wymaga częstych zmian w różnych, niezwiązanych częściach, może mieć zbyt wiele odpowiedzialności.</li>
+                    <li><strong>Rozproszona modyfikacja (Shotgun Surgery)</strong> – Jeśli zmiana w jednej klasie wymusza zmiany w wielu innych, spróbuj ograniczyć wpływ zmian do jednej klasy.</li>
+                    <li><strong>Równoległe hierarchie dziedziczenia (Parallel Inheritance Hierarchies)</strong> – Jeśli każda nowa klasa wymaga utworzenia innej klasy w innym hierarchicznym drzewie, być może warto uprościć strukturę.</li>
+                    <li><strong>Niekompletna klasa biblioteczna (Incomplete Library Class)</strong> – Jeśli biblioteka nie oferuje potrzebnej metody i nie możesz jej zmodyfikować, spróbuj ją wydzielić osobno.</li>
+                    <li><strong>Rozrastające się rozwiązanie (Solution Sprawl)</strong> – Jeśli do wykonania jednej rzeczy potrzebujesz pięciu klas, być może projekt jest zbyt skomplikowany.</li>
+                </ul>
+
+                <h2>Uniknij Code Smells i rozwiąż zadanie rekrutacyjne</h2>
+
+                <p>
+                    Wykorzystaj dotychczas zdobytą wiedzę i postaraj się rozwiązać problem. Napisz testy 
+                    oraz zaimplementuj rozwiązanie.
+                </p>
+                <p>
+                    Proszę zaimplementować program, który będzie odpowiedzialny za wyszukiwanie zbiorów 
+                    liczb powtarzających się elementów o ściśle określonym rozmiarze. Dla podanego 
+                    zbioru liczb (lista elementów o dowolnej długości) użytkownik powinien przekazać 
+                    również rozmiar wyszukiwanych zbiorów. Funkcja powinna zwracać listę składającą 
+                    się z pojedynczych elementów reprezentujących wyszukiwane zbiory.
+                </p>
+
+                <img src="./Tomasz Gądek _ TiJO _ LAB06_files/tijo-lab06-tests.png" alt="lottery function tests">
+
+                <p>
+                    <em>Realne zadanie rekrutacyjne do firmy <a href="https://www.schibsted.pl/" bis_skin_checked="1">schibsted</a>.</em>
+                </p>
+
+                <h2>Uniknij Code Smells i zaprojektuj interfejs dla pojazdu księżycowego</h2>
+
+                <p>
+                    Jako inżynier firmy <a href="https://www.nasa.gov/" bis_skin_checked="1">NASA</a> zostałeś poproszony o 
+                    zaprojektowanie, przetestowanie oraz implementację ruchu pojazdu księżycowego. 
+                    Musisz być świadomy ograniczeń, które zostały uwzględnione w specyfikacji technicznej.
+                </p>
+
+                <img src="./Tomasz Gądek _ TiJO _ LAB06_files/tijo-lab06-space-vehicle.png" alt="space vehicle">
+
+                <p>
+                    Specyfikacja techniczna pojazdu księżycowego:
+                </p>
+
+                <img src="./Tomasz Gądek _ TiJO _ LAB06_files/tijo-lab06-space-vehicle-tests.png" alt="space vehicle tests">
+
+                <p>
+                    Bardzo proszę zaproponować interfejs pojazdu księżycowego dostosowany do specyfikacji 
+                    technicznej. Proszę zaimplementować mechanizm poruszania się pojazdu księżycowego. 
+                    Zachowanie pojazdu powinno być dobrze przetestowane przy pomocy modułu 
+                    <strong>unittest</strong>.
+                </p>
+
+                <hr>
+                
+                <p>
+                    <em>Wiem, że nic nie wiem</em>
+                </p>
+                <p>~<strong>Sokrates</strong><span class="cursor"></span></p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Tomasz Gądek. Wszystkie prawa zastrzeżone.</p>
+    </footer>
+
+    <script src="./Tomasz Gądek _ TiJO _ LAB06_files/ThemeSwitcher.js.pobrane" type="text/javascript"></script>
+
+
+</body><app-ls-content ng-version="17.3.7"><template shadowrootmode="open"><!----><app-similar-tools _nghost-ng-c2697620354=""><!----><!----><!----></app-similar-tools><!----><!----><style>[_nghost-ng-c2697620354]{font-family:Open Sans,sans-serif;color:#121212}</style></template></app-ls-content></html>
