@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pl"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Tomasz Gądek">
+    <meta name="description" content="
+            CLEAN CODE - Twórz oprogramowanie, które rozumieją ludzie, a nie komputery.
+            TDD - Bądź profesjonalny i testuj własny kod.
+            CODE KATA - Ćwicz do bólu, aż pojawi się pamięć mięśniowa. 
+        ">
+
+    <link rel="icon" type="image/png" href="Tomasz%20G%C4%85dek%20_%20TiJO%20_%20LAB12_files/tgadek-logo.png">
+
+    <title>Tomasz Gądek | TiJO | LAB12</title>
+
+    <link id="theme-style" rel="stylesheet" href="Tomasz%20G%C4%85dek%20_%20TiJO%20_%20LAB12_files/general.css">
+</head>
+<body>
+    <header>
+        <a href="https://tgadek.bitbucket.io/"><img src="Tomasz%20G%C4%85dek%20_%20TiJO%20_%20LAB12_files/tgadek-logo.png" alt="Tomasz Gądek Home Page"></a><h1>tgadek.bitbucket.io</h1>
+    </header>
+
+    <nav>
+        <a href="https://tgadek.bitbucket.io/" title="Strona Główna">Home</a>
+        <a href="https://tgadek.bitbucket.io/nisp.html" title="Narzędzia i Środowiska Programistyczne">NiSP</a>
+        <a href="https://tgadek.bitbucket.io/tijo.html" title="Testowanie i Jakość Oprogramowania">TiJO</a>
+        <a href="https://tgadek.bitbucket.io/jz.html" title="Języki Znacznikowe">JZ / PIU</a>
+        <a href="https://tgadek.bitbucket.io/ld.html" title="Laboratorium Dyplomowe">LD</a>
+        <a href="https://tgadek.bitbucket.io/ti.html" title="Technologia Informacyjna">TI</a>
+    </nav>
+
+    <div class="container">
+        <div class="terminal">
+            <div class="terminal-bar">
+                <div class="terminal-button red"></div>
+                <div class="terminal-button yellow"></div>
+                <div class="terminal-button green"></div>
+                <button class="theme-toggle" id="theme-toggle" title="Zmień tryb">☀️</button>
+            </div>
+            <div class="terminal-content">
+                <h1>Testowanie i Jakość Oprogramowania</h1>
+                <p>
+                    <strong>Laboratorium 12:</strong> Test Case &amp; Bug Report.
+                </p>
+
+                <h2>Przypadki testowe i zgłaszanie błędów</h2>
+
+                <p>
+                    Testowanie oprogramowania to kluczowy etap w procesie wytwarzania systemów 
+                    informatycznych. Dobrze zaprojektowane przypadki testowe (test cases) 
+                    pozwalają systematycznie sprawdzić, czy aplikacja spełnia wymagania, działa 
+                    poprawnie oraz umożliwiają wczesne wykrycie błędów. Równie ważne co samo 
+                    testowanie, jest <strong>prawidłowe zgłaszanie błędów</strong>. Raporty błędów 
+                    powinny być czytelne, jednoznaczne i umożliwiać szybkie odtworzenie problemu przez 
+                    programistę.
+                </p>
+
+                <h2>Test Case (Przypadek Testowy)</h2>
+
+                <p>
+                    <strong>Test Case</strong> to rodzaj dokumentu używanego do weryfikacji, czy oczekiwane 
+                    zachowanie aplikacji odpowiada jej rzeczywistemu zachowaniu. Należy do kategorii dokumentów 
+                    testowych. Opisuje, co powinno się dziać w systemie w odpowiedzi na konkretne dane wejściowe 
+                    lub działania użytkownika. Test Case jest dokumentem wielokrotnego użytku — można go 
+                    wykorzystać przy wielu sesjach testowych, co pozwala na systematyczne i powtarzalne 
+                    sprawdzanie funkcjonalności aplikacji.
+                </p>
+
+                <img src="Tomasz%20G%C4%85dek%20_%20TiJO%20_%20LAB12_files/tijo-lab12-test-case.png" alt="test case">
+
+                <h2>Bug Report (Zgłoszenie Błędu)</h2>
+
+                <p>
+                    <strong>Bug Report</strong> to dokument służący do zgłoszenia niezgodności pomiędzy 
+                    rzeczywistym a oczekiwanym działaniem aplikacji. Zaliczany jest do dokumentów typu "błąd". 
+                    Opisuje to, co faktycznie dzieje się w aplikacji podczas jej działania — zwłaszcza w 
+                    sytuacjach, gdy nie spełnia ona założeń. Bug Report zawiera rzeczywisty rezultat 
+                    zaobserwowany podczas testowania i stanowi podstawę do analizy oraz poprawy błędów. 
+                    Zgłoszenie to zostaje zamknięte dopiero po tym, jak zgłoszony problem zostanie 
+                    zweryfikowany i skutecznie rozwiązany.
+                </p>
+
+                <img src="Tomasz%20G%C4%85dek%20_%20TiJO%20_%20LAB12_files/tijo-lab12-bug-report.png" alt="bug report">
+
+                <h2>Zadanie - Test Case &amp; Bug Reports (Trello)</h2>
+
+                <p>
+                    Masz do dyspozycji dwie aplikacje w wersji DEV (do testowania) i PROD (jako dokumentacja referencyjna):
+                </p>
+
+                <ul>
+                    <li>Aplikacja "Kalkulator": <a href="https://tgadek.bitbucket.io/app/calc/dev/index.html" target="_blank">DEV</a>, <a href="https://tgadek.bitbucket.io/app/calc/prod/index.html" target="_blank">PROD</a></li>
+                    <li>Aplikacja "Portfolio": <a href="https://tgadek.bitbucket.io/app/portfolio/dev/index.html" target="_blank">DEV</a>, <a href="https://tgadek.bitbucket.io/app/portfolio/prod/index.html" target="_blank">PROD</a></li>
+                </ul>
+
+                <p>Wersja PROD służy jako wzorzec działania aplikacji — porównuj ją z wersją DEV, aby wykrywać błędy.</p>
+
+                <p>Twoim zadaniem jest:</p>
+
+                <ul>
+                    <li>Założenie konta w <a href="https://trello.com/" target="_blank">Trello</a>.</li>
+                    <li>Utworzenie osobnej tablicy w Trello dla każdej aplikacji.</li>
+                    <li>Organizacja testów oraz błędów zgodnie z poniższymi wytycznymi.</li>
+                </ul>
+
+                <p>W każdej tablicy utwórz kolumny (jedna tablica = jeden projekt):</p>
+
+                <ul>
+                    <li>TestCase - Kalkulator, 2 karty | Portfolio, 5 kart.</li>
+                    <li>Zgłoszenia (BugReports) - Kalkulator, 2 karty | Portfolio, 5 kart.</li>
+                    <li>Zgłoszenia w trakcie - Kolumna bez kart.</li>
+                    <li>Zgłoszenia zweryfikowane - Kolumna bez kart.</li>
+                </ul>
+
+                <hr>
+                
+                <p>
+                    <em>Wiem, że nic nie wiem</em>
+                </p>
+                <p>~<strong>Sokrates</strong><span class="cursor"></span></p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Tomasz Gądek. Wszystkie prawa zastrzeżone.</p>
+    </footer>
+
+    <script src="Tomasz%20G%C4%85dek%20_%20TiJO%20_%20LAB12_files/ThemeSwitcher.js" type="text/javascript"></script>
+
+
+</body></html>
