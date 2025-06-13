@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<!-- saved from url=(0041)https://tgadek.bitbucket.io/tijo/oop.html -->
+<html lang="pl"><script src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/content/location/location.js" id="eppiocemhmnlbhjplcgkofciiegomcon"></script><script src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/libs/extend-native-history-api.js"></script><script src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/libs/requests.js"></script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Tomasz Gądek">
+    <meta name="description" content="
+            CLEAN CODE - Twórz oprogramowanie, które rozumieją ludzie, a nie komputery.
+            TDD - Bądź profesjonalny i testuj własny kod.
+            CODE KATA - Ćwicz do bólu, aż pojawi się pamięć mięśniowa. 
+        ">
+
+    <link rel="icon" type="image/png" href="./Tomasz Gądek _ TiJO _ LAB08_files/tgadek-logo.png">
+
+    <title>Tomasz Gądek | TiJO | LAB08</title>
+
+    <link id="theme-style" rel="stylesheet" href="./Tomasz Gądek _ TiJO _ LAB08_files/general.css">
+<link id="chromealerabat-link" rel="stylesheet" type="text/css" href="chrome-extension://dacdinoicboceafielngnmjjplncljhj/content.css"><script bis_use="true" type="text/javascript" charset="utf-8" data-bis-config="[&quot;facebook.com/&quot;,&quot;twitter.com/&quot;,&quot;youtube-nocookie.com/embed/&quot;,&quot;//vk.com/&quot;,&quot;//www.vk.com/&quot;,&quot;linkedin.com/&quot;,&quot;//www.linkedin.com/&quot;,&quot;//instagram.com/&quot;,&quot;//www.instagram.com/&quot;,&quot;//www.google.com/recaptcha/api2/&quot;,&quot;//hangouts.google.com/webchat/&quot;,&quot;//www.google.com/calendar/&quot;,&quot;//www.google.com/maps/embed&quot;,&quot;spotify.com/&quot;,&quot;soundcloud.com/&quot;,&quot;//player.vimeo.com/&quot;,&quot;//disqus.com/&quot;,&quot;//tgwidget.com/&quot;,&quot;//js.driftt.com/&quot;,&quot;friends2follow.com&quot;,&quot;/widget&quot;,&quot;login&quot;,&quot;//video.bigmir.net/&quot;,&quot;blogger.com&quot;,&quot;//smartlock.google.com/&quot;,&quot;//keep.google.com/&quot;,&quot;/web.tolstoycomments.com/&quot;,&quot;moz-extension://&quot;,&quot;chrome-extension://&quot;,&quot;/auth/&quot;,&quot;//analytics.google.com/&quot;,&quot;adclarity.com&quot;,&quot;paddle.com/checkout&quot;,&quot;hcaptcha.com&quot;,&quot;recaptcha.net&quot;,&quot;2captcha.com&quot;,&quot;accounts.google.com&quot;,&quot;www.google.com/shopping/customerreviews&quot;,&quot;buy.tinypass.com&quot;,&quot;gstatic.com&quot;,&quot;secureir.ebaystatic.com&quot;,&quot;docs.google.com&quot;,&quot;contacts.google.com&quot;,&quot;github.com&quot;,&quot;mail.google.com&quot;,&quot;chat.google.com&quot;,&quot;audio.xpleer.com&quot;,&quot;keepa.com&quot;,&quot;static.xx.fbcdn.net&quot;,&quot;sas.selleramp.com&quot;,&quot;1plus1.video&quot;,&quot;console.googletagservices.com&quot;,&quot;//lnkd.demdex.net/&quot;,&quot;//radar.cedexis.com/&quot;,&quot;//li.protechts.net/&quot;,&quot;challenges.cloudflare.com/&quot;,&quot;ogs.google.com&quot;]" src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/executors/traffic.js"></script><style>[_nghost-ng-c2697620354]{font-family:Open Sans,sans-serif;color:#121212}</style></head>
+<body bis_register="W3sibWFzdGVyIjp0cnVlLCJleHRlbnNpb25JZCI6ImVwcGlvY2VtaG1ubGJoanBsY2drb2ZjaWllZ29tY29uIiwiYWRibG9ja2VyU3RhdHVzIjp7IkRJU1BMQVkiOiJkaXNhYmxlZCIsIkZBQ0VCT09LIjoiZGlzYWJsZWQiLCJUV0lUVEVSIjoiZGlzYWJsZWQiLCJSRURESVQiOiJkaXNhYmxlZCIsIlBJTlRFUkVTVCI6ImRpc2FibGVkIiwiSU5TVEFHUkFNIjoiZGlzYWJsZWQiLCJMSU5LRURJTiI6ImRpc2FibGVkIiwiQ09ORklHIjoiZGlzYWJsZWQifSwidmVyc2lvbiI6IjIuMC4yNCIsInNjb3JlIjoyMDAyNH1d" __processed_12cb0e91-b027-4b5d-b1ee-bdb39b1d7ccf__="true" bis_skin_checked="1">
+    <header>
+        <a href="https://tgadek.bitbucket.io/"><img src="./Tomasz Gądek _ TiJO _ LAB08_files/tgadek-logo.png" alt="Tomasz Gądek Home Page"></a><h1>tgadek.bitbucket.io</h1>
+    </header>
+
+    <nav>
+        <a href="https://tgadek.bitbucket.io/" title="Strona Główna" bis_skin_checked="1">Home</a>
+        <a href="https://tgadek.bitbucket.io/nisp.html" title="Narzędzia i Środowiska Programistyczne" bis_skin_checked="1">NiSP</a>
+        <a href="https://tgadek.bitbucket.io/tijo.html" title="Testowanie i Jakość Oprogramowania" bis_skin_checked="1">TiJO</a>
+        <a href="https://tgadek.bitbucket.io/jz.html" title="Języki Znacznikowe" bis_skin_checked="1">JZ / PIU</a>
+        <a href="https://tgadek.bitbucket.io/ld.html" title="Laboratorium Dyplomowe" bis_skin_checked="1">LD</a>
+        <a href="https://tgadek.bitbucket.io/ti.html" title="Technologia Informacyjna" bis_skin_checked="1">TI</a>
+    </nav>
+
+    <div class="container" bis_skin_checked="1">
+        <div class="terminal" bis_skin_checked="1">
+            <div class="terminal-bar" bis_skin_checked="1">
+                <div class="terminal-button red" bis_skin_checked="1"></div>
+                <div class="terminal-button yellow" bis_skin_checked="1"></div>
+                <div class="terminal-button green" bis_skin_checked="1"></div>
+                <button class="theme-toggle" id="theme-toggle" title="Zmień tryb">☀️</button>
+            </div>
+            <div class="terminal-content" bis_skin_checked="1">
+                <h1>Testowanie i Jakość Oprogramowania</h1>
+                <p>
+                    <strong>Laboratorium 8:</strong> OOP.
+                </p>
+
+                <h2>OOP</h2>
+
+                <p>
+                    <strong>Programowanie obiektowe</strong> (ang. <em>Object-Oriented Programming</em>) 
+                    to paradygmat programowania,
+                    który opiera się na koncepcji obiektów. Obiekty są instancjami klas, które
+                    definiują ich właściwości i zachowanie. Programowanie obiektowe 
+                    umożliwia tworzenie bardziej złożonych i elastycznych aplikacji poprzez
+                    organizację kodu w moduły.
+                </p>
+
+                <h2>Paradygmaty programowania obiektowego</h2>
+
+                <p>
+                    Programowanie obiektowe opiera się na kilku kluczowych paradygmatach:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Abstrakcja</strong>: Proces ukrywania szczegółów implementacji i
+                        przedstawiania tylko istotnych cech obiektu.
+                    </li>
+                    <li>
+                        <strong>Enkapsulacja</strong>: Proces grupowania danych i metod w jedną
+                        jednostkę (klasę) oraz ograniczania dostępu do niektórych jej
+                        elementów.
+                    </li>
+                    <li>
+                        <strong>Dziedziczenie</strong>: Mechanizm, który pozwala na tworzenie
+                        nowych klas na podstawie istniejących, dziedzicząc ich właściwości i
+                        metody.
+                    </li>
+                    <li>
+                        <strong>Polimorfizm</strong>: Zdolność różnych klas do implementacji
+                        tych samych metod, co pozwala na użycie tych samych interfejsów w
+                        różnych kontekstach.
+                    </li>
+                </ul>
+
+                <h2>Zadanie - setter()</h2>
+
+                <p>
+                    <strong>setter()</strong> jest odpowiedzialny za zmianę "wnętrza" obiektu. 
+                    Jeśli zaimplementujesz go niedbale, może narobić bałaganu. Weryfikuj, czy 
+                    podajesz sensowne dane, pilnuj, aby wszystko w obiekcie do siebie pasowało po zmianie. 
+                    Możesz łatwo "zepsuć" swój obiekt i wprowadzić go w zły stan.
+                </p>
+
+                <p>
+                    Prosty przykład: Wyobraź sobie setter <strong>set_age()</strong>. Jeśli pozwala ci wpisać 
+                    <strong>-5</strong> lat, to coś jest nie tak z Twoim obiektem <strong>user</strong>. Masz
+                    okazję poprawić <a href="https://tgadek.bitbucket.io/tijo/source-code/oop/user.py" bis_skin_checked="1">implementację klasy</a>.
+                </p>
+
+                <p>Porady dotyczące tworzenia metod ustawiających.</p>
+                <ul>
+                    <li>
+                        <strong>Sprawdzaj, co wpisujesz</strong>: Upewnij się, że wiek 
+                        nie jest ujemny.
+                    </li>
+                    <li>
+                        <strong>Pilnuj porządku</strong>: Jeśli zmiana wzrostu wpływa na BMI, 
+                        setter wzrostu powinien też zaktualizować BMI.
+                    </li>
+                    <li>
+                        <strong>Pomyśl dwa razy</strong>: Czy naprawdę potrzebujesz tylu setterów? 
+                        Może zamiast zmieniać wszystko po kawałku, lepiej zrobić jedną akcję, która 
+                        logicznie zmienia stan obiektu.
+                    </li>
+                </ul>
+
+                <h2>Zadanie - getter()</h2>
+
+                <p>
+                    <strong>getter()</strong> jest odpowiedzialny za bezpieczny odczyt danych z "wnętrza" obiektu. 
+                    Jeśli zaimplementujesz go niedbale, możesz ujawnić zbyt wiele. 
+                    Getter powinien być prosty, ale przemyślany – upewnij się, że zwraca dane w odpowiedniej formie 
+                    i nie zdradza więcej, niż powinien. 
+                </p>
+
+                <p>
+                    Klasa <a href="https://tgadek.bitbucket.io/tijo/source-code/oop/transfer.py" bis_skin_checked="1">Transfer</a> posiada niebezpieczny getter(). Zobacz, jak łatwo można naruszyć integralność 
+                    kluczowej operacji finansowej z zewnątrz. Obiekt, reprezentujący gotówkę klienta, jest uszkodzony.
+                    Napraw go stosując <strong>kopię defensywną</strong>.
+                </p>
+
+                <h2>Zadanie - OOP i Flask</h2>
+
+                <p>
+                    Pobierz aplikację <a href="https://tgadek.bitbucket.io/tijo/source-code/oop/flask-figure-app.zip" bis_skin_checked="1">flask-figure-app</a>, 
+                    skopiuj ją do katalogu źródłowego <strong>src</strong> i uruchom moduł <strong>app.py</strong>.
+                </p>
+
+                <img src="./Tomasz Gądek _ TiJO _ LAB08_files/tijo-lab08-figure-app.png" alt="Flask Figure App">
+                <p>
+                    Aplikacja jest prostą aplikacją webową, która pozwala na zmianę kolorów figur geometrycznych. 
+                    Używa Flask do obsługi żądań HTTP i renderowania szablonu HTML.
+                </p>
+
+                <p>Wykonaj refaktoryzację kodu i spełnij wymagania:</p>
+
+                <ul>
+                    <li>Zdefiniuj klasy (Figure, Square, Circle, Triangle) reprezentujące figury z atrybutami i metodami.</li>
+                    <li>Utwórz kolekcję (np. słownik <b>figures</b>) przechowującą instancje figur.</li>
+                    <li>Utwórz dedykowaną klasę (serwis) odpowiedzialną za zarządzanie stanem figur.</li>
+                    <li>Zaimplementuj w serwisie metody do pobierania stanu kolorów figur w spójnym formacie (np. słownik).</li>
+                    <li>
+                        Użyj serwisu w module <strong>app.py</strong>. Zmodyfikuj funkcje obsługi żądań HTTP, aby 
+                        korzystały z metod utworzonego serwisu do interakcji z figurami.
+                    </li>
+                </ul>
+
+                <hr>
+                
+                <p>
+                    <em>Wiem, że nic nie wiem</em>
+                </p>
+                <p>~<strong>Sokrates</strong><span class="cursor"></span></p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Tomasz Gądek. Wszystkie prawa zastrzeżone.</p>
+    </footer>
+
+    <script src="./Tomasz Gądek _ TiJO _ LAB08_files/ThemeSwitcher.js.pobrane" type="text/javascript"></script>
+
+
+</body><app-ls-content ng-version="17.3.7"><template shadowrootmode="open"><!----><app-similar-tools _nghost-ng-c2697620354=""><!----><!----><!----></app-similar-tools><!----><!----><style>[_nghost-ng-c2697620354]{font-family:Open Sans,sans-serif;color:#121212}</style></template></app-ls-content></html>

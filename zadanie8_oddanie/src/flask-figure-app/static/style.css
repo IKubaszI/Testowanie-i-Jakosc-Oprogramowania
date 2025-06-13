@@ -1,0 +1,167 @@
+body {
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 1.8em;
+}
+
+.figures-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 60px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.figure-canvas-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    min-width: 150px;
+}
+
+canvas {
+    margin-bottom: 15px; /* Większy margines pod canvasem */
+    width: 100px;
+    height: 100px;
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+}
+
+.controls input[type="color"] {
+    -webkit-appearance: none;
+    border: 1px solid #ccc; /* Dodaj obramowanie */
+    border-radius: 4px;
+    box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.1);
+    width: 40px;
+    height: 32px; /* Ustaw wysokość podobną do buttona */
+    cursor: pointer;
+    background: white; /* Domyślne tło */
+    padding: 2px;
+}
+
+.controls input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+.controls input[type="color"]::-webkit-color-swatch {
+    border: none;
+    border-radius: 2px;
+}
+
+.controls button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    height: 32px; /* Ustaw identyczną wysokość */
+}
+
+.controls button:hover {
+    background-color: #0056b3;
+}
+
+.change-all-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.change-all-container h2 {
+    margin-bottom: 15px;
+    font-size: 1.5em;
+}
+
+.change-all-container > div {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.change-all-container > div input[type="color"] {
+    -webkit-appearance: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.1);
+    width: 50px;
+    height: 36px; /* Dostosuj wysokość do buttona "Zmień Wszystkie" */
+    cursor: pointer;
+    background: white;
+    padding: 2px;
+}
+
+.change-all-container > div input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+.change-all-container > div input[type="color"]::-webkit-color-swatch {
+    border: none;
+    border-radius: 2px;
+}
+
+.change-all-container > div button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #28a745;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    height: 36px; /* Ustaw identyczną wysokość */
+}
+
+.change-all-container > div button:hover {
+    background-color: #1e7e34;
+}
+
+/* Media query dla mniejszych ekranów */
+@media (max-width: 768px) {
+    .figures-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .figure-canvas-container {
+        width: 80%;
+        min-width: auto;
+    }
+
+    .controls {
+        flex-direction: column; /* Ustaw na kolumnę na mniejszych ekranach */
+        align-items: stretch; /* Rozciągnij elementy na całą szerokość */
+    }
+
+    .controls input[type="color"],
+    .controls button {
+        width: 100%; /* Zajmuj całą szerokość */
+        margin-bottom: 5px; /* Dodaj trochę odstępu */
+    }
+}

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title>Figury</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<h1>Figury</h1>
+
+<div class="figures-container">
+    <div class="figure-canvas-container">
+        <canvas id="squareCanvas" width="100" height="100"></canvas>
+        <div class="controls">
+            <input type="color" id="square-color" value="{{ figure_colors['square'] }}">
+            <button onclick="changeColor('square')">Zmień kolor</button>
+        </div>
+    </div>
+
+    <div class="figure-canvas-container">
+        <canvas id="circleCanvas" width="100" height="100"></canvas>
+        <div class="controls">
+            <input type="color" id="circle-color" value="{{ figure_colors['circle'] }}">
+            <button onclick="changeColor('circle')">Zmień kolor</button>
+        </div>
+    </div>
+
+    <div class="figure-canvas-container">
+        <canvas id="triangleCanvas" width="100" height="100"></canvas>
+        <div class="controls">
+            <input type="color" id="triangle-color" value="{{ figure_colors['triangle'] }}">
+            <button onclick="changeColor('triangle')">Zmień kolor</button>
+        </div>
+    </div>
+</div>
+
+<div class="change-all-container">
+    <h2>Zmień kolor wszystkich figur</h2>
+    <div>
+        <input type="color" id="all-colors" value="#808080">
+        <button onclick="changeColorAll()">Zmień kolor</button>
+    </div>
+</div>
+
+<script>
+    const figureColors = {{ figure_colors|tojson }};
+
+    function drawSquare(canvasId, color) {
+        const canvas = document.getElementById(canvasId);
+        const ctx = canvas.getContext('2d');
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
+        ctx.shadowBlur = 5;
+        ctx.fillStyle = color;
+        ctx.fillRect(10, 10, 80, 80);
+        ctx.fill();
+    }
+
+    function drawCircle(canvasId, color) {
+        const canvas = document.getElementById(canvasId);
+        const ctx = canvas.getContext('2d');
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
+        ctx.shadowBlur = 5;
+        ctx.beginPath();
+        ctx.arc(50, 50, 40, 0, 2 * Math.PI);
+        ctx.fillStyle = color;
+        ctx.fill();
+    }
+
+    function drawTriangle(canvasId, color) {
+        const canvas = document.getElementById(canvasId);
+        const ctx = canvas.getContext('2d');
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
+        ctx.shadowBlur = 5;
+        ctx.beginPath();
+        ctx.moveTo(50, 10);
+        ctx.lineTo(10, 90);
+        ctx.lineTo(90, 90);
+        ctx.closePath();
+        ctx.fillStyle = color;
+        ctx.fill();
+    }
+
+    function changeColor(type) {
+        const colorInput = document.getElementById(type + '-color');
+        const new_color = colorInput.value;
+
+        fetch('/change-color', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ figure_type: type, new_color: new_color })
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    const newColor = data.figure_colors[type];
+                    if (type === 'square') drawSquare('squareCanvas', newColor);
+                    else if (type === 'circle') drawCircle('circleCanvas', newColor);
+                    else if (type === 'triangle') drawTriangle('triangleCanvas', newColor);
+                } else {
+                    alert('change figure color error');
+                }
+            });
+    }
+
+    function changeColorAll() {
+        const colorInput = document.getElementById('all-colors');
+        const new_color = colorInput.value;
+
+        fetch('/change-color-all', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ new_color: new_color })
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    drawSquare('squareCanvas', data.figure_colors['square']);
+                    drawCircle('circleCanvas', data.figure_colors['circle']);
+                    drawTriangle('triangleCanvas', data.figure_colors['triangle']);
+                } else {
+                    alert('change figures color error');
+                }
+            });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        drawSquare('squareCanvas', figureColors['square']);
+        drawCircle('circleCanvas', figureColors['circle']);
+        drawTriangle('triangleCanvas', figureColors['triangle']);
+    });
+</script>
+</body>
+</html>
