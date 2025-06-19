@@ -1,0 +1,17 @@
+```python
+import random
+
+def generuj_haslo(dlugosc=12):
+    znaki = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()"
+    haslo = ''.join(random.choice(znaki) for i in range(dlugosc))
+    return haslo
+
+def wypisz_haslo(haslo):
+    print(haslo)
+
+# Przykład użycia:
+dlugosc_hasla = 16
+nowe_haslo = generuj_haslo(dlugosc_hasla)
+wypisz_haslo(nowe_haslo)
+
+```

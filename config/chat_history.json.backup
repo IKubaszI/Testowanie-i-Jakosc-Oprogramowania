@@ -1,1 +1,34 @@
-[]
+[
+    {
+        "parts": [
+            {
+                "text": "Jestem ekspertem ds. testowania i jakości oprogramowania. Specjalizuję się w analizie kodu źródłowego, wykrywaniu typowych błędów, naruszeń zasad SOLID oraz prawa Demeter, a także proponowaniu skutecznych poprawek. Potrafię generować testy jednostkowe, tworzyć i dokumentować przypadki testowe, analizować pokrycie testami oraz sugerować brakujące scenariusze. Działam jak automatyczny recenzent kodu i doradca w zakresie dobrych praktyk. Odpowiadam precyzyjnie, zwięźle, profesjonalnie i praktycznie – tak, aby ułatwić i zautomatyzować pracę testera oraz programisty. Jeśli użytkownik nie poda kontekstu lub języka programowania, samodzielnie wyciągam wnioski na podstawie przekazanego kodu lub pytania. Jeśli kod zawiera poważne błędy, informuję o nich jasno i podpowiadam konkretne działania naprawcze. W odpowiedziach unikam zbędnych ogólników, skupiam się na konkretach oraz gotowych do wdrożenia rozwiązaniach.\n\nKod do analizy:\naaaaa"
+            }
+        ],
+        "role": "user"
+    },
+    {
+        "parts": [
+            {
+                "text": "Podany kod \"aaaaa\" jest niewystarczający do przeprowadzenia analizy jakości oprogramowania.  Nie zawiera żadnych informacji o strukturze, logice ani języku programowania.  Aby przeprowadzić analizę, potrzebuję fragment kodu źródłowego w konkretnym języku programowania (np. Java, Python, C++, C#).\n"
+            }
+        ],
+        "role": "model"
+    },
+    {
+        "parts": [
+            {
+                "text": "Jestem ekspertem ds. testowania i jakości oprogramowania. Specjalizuję się w analizie kodu źródłowego, wykrywaniu typowych błędów, naruszeń zasad SOLID oraz prawa Demeter, a także proponowaniu skutecznych poprawek. Potrafię generować testy jednostkowe, tworzyć i dokumentować przypadki testowe, analizować pokrycie testami oraz sugerować brakujące scenariusze. Działam jak automatyczny recenzent kodu i doradca w zakresie dobrych praktyk. Odpowiadam precyzyjnie, zwięźle, profesjonalnie i praktycznie – tak, aby ułatwić i zautomatyzować pracę testera oraz programisty. Jeśli użytkownik nie poda kontekstu lub języka programowania, samodzielnie wyciągam wnioski na podstawie przekazanego kodu lub pytania. Jeśli kod zawiera poważne błędy, informuję o nich jasno i podpowiadam konkretne działania naprawcze. W odpowiedziach unikam zbędnych ogólników, skupiam się na konkretach oraz gotowych do wdrożenia rozwiązaniach.\n\nZwróć odpowiedź tylko jako kod (bez żadnych komentarzy, opisów, tekstu przed kodem ani po kodzie). Jeśli to możliwe, daj pełny blok kodu gotowy do użycia.\n\nKod do analizy:\npokaz kod do wypisywania moew w pythonie"
+            }
+        ],
+        "role": "user"
+    },
+    {
+        "parts": [
+            {
+                "text": "```python\nimport random\n\ndef generuj_haslo(dlugosc=12):\n    znaki = \"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()\"\n    haslo = ''.join(random.choice(znaki) for i in range(dlugosc))\n    return haslo\n\ndef wypisz_haslo(haslo):\n    print(haslo)\n\n# Przykład użycia:\ndlugosc_hasla = 16\nnowe_haslo = generuj_haslo(dlugosc_hasla)\nwypisz_haslo(nowe_haslo)\n\n```\n"
+            }
+        ],
+        "role": "model"
+    }
+]

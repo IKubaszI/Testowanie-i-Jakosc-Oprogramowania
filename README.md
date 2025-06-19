@@ -1,5 +1,6 @@
 # Asystent AI dla Testera Oprogramowania
-
+Autor: Jakub Szaraj
+E-mail: kubasz2231@gmail.com
 Ten projekt to prosty graficzny interfejs użytkownika (GUI) zbudowany w Pythonie. Wykorzystuje model AI (Gemini) do analizy kodu i wsparcia testera oprogramowania.
 
 ## Wymagania
@@ -54,3 +55,20 @@ Pillow
 - Historia zapytań
 - Odpowiadać na zapytania użytkownika
 - Użytkownik może zmodyfikować ją dowolnie
+
+## Zrzuty ekranu działania aplikacji
+
+![1](images\1.png)
+![2](images\2.png)
+![3](images\3.png)
+![4](images\4.png)
+![5](images\5.png)
+![6](images\6.png)
+![7](images\7.png)  
+![8](images\8.png)
+![9](images\9.png)
+![10](images\10.png)
+![11](images\11.png)
+![12](images\12.png)
+![13](images\13.png)
+![14](images\14.png)

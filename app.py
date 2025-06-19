@@ -13,6 +13,8 @@ client = GeminiClient()
 history_list = []
 last_ai_response = "" 
 
+
+
 LIGHT_COLORS = {
     "bg": "#f5f7fa",
     "fg": "#373737",
@@ -62,6 +64,7 @@ def show_intro_popup():
     intro.configure(bg="#fdfdfd")
     intro.attributes("-topmost", True)
     gif_path = "assets/kotek.gif"
+    intro.iconbitmap("myIcon.ico")
     frames = []
 
     try:
@@ -237,6 +240,8 @@ def save_response_choice():
     win.title("Co chcesz zapisać?")
     win.geometry("340x120")
     tk.Label(win, text="Wybierz co chcesz zapisać:").pack(pady=8)
+    win.iconbitmap("myIcon.ico")
+
 
     def save(type_: str):
         raw = last_ai_response or rendered
@@ -341,6 +346,8 @@ def edit_tune():
     win.grab_set()
     win.columnconfigure(0, weight=1)
     win.rowconfigure(1, weight=1)
+    win.iconbitmap("myIcon.ico")
+    
 
     ttk.Label(win, text="Prompt systemowy (tune):",
               font=("Segoe UI", 12, "bold")).grid(
@@ -381,6 +388,7 @@ def show_history_window():
     history_window = Toplevel(root)
     history_window.title("Historia zapytań i odpowiedzi")
     history_window.geometry("850x600")
+    history_window.iconbitmap("myIcon.ico")
     hist_box = scrolledtext.ScrolledText(
         history_window, width=100, height=35, state='normal',
         bg="#e8e8f5", font=("Consolas", 10), wrap="word")
@@ -521,6 +529,8 @@ update_theme()
 if history_list:
     last_ai_response = history_list[-1]["response"]
     format_ai_response_widget(response_text, last_ai_response)
+
+root.iconbitmap("myIcon.ico")
 
 show_intro_popup()
 root.mainloop()

@@ -1,0 +1,30 @@
+[1]
+Kod:
+aaaaa
+Odpowiedź:
+Podany kod "aaaaa" jest niewystarczający do przeprowadzenia analizy jakości oprogramowania.  Nie zawiera żadnych informacji o strukturze, logice ani języku programowania.  Aby przeprowadzić analizę, potrzebuję fragment kodu źródłowego w konkretnym języku programowania (np. Java, Python, C++, C#).
+
+----------------------------------------
+[2]
+Kod:
+pokaz kod do wypisywania moew w pythonie
+Odpowiedź:
+```python
+import random
+
+def generuj_haslo(dlugosc=12):
+    znaki = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()"
+    haslo = ''.join(random.choice(znaki) for i in range(dlugosc))
+    return haslo
+
+def wypisz_haslo(haslo):
+    print(haslo)
+
+# Przykład użycia:
+dlugosc_hasla = 16
+nowe_haslo = generuj_haslo(dlugosc_hasla)
+wypisz_haslo(nowe_haslo)
+
+```
+
+----------------------------------------
